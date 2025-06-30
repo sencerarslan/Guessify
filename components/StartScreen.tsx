@@ -1,7 +1,6 @@
-
-import React, { useState } from 'react';
-import { MusicNoteIcon } from './shared/Icons.tsx';
-import { ScoreEntry } from '../types.ts';
+import React, { useState } from "react";
+import { MusicNoteIcon } from "./shared/Icons.tsx";
+import { ScoreEntry } from "../types.ts";
 
 interface StartScreenProps {
   onStart: (name: string) => void;
@@ -9,7 +8,7 @@ interface StartScreenProps {
 }
 
 const StartScreen: React.FC<StartScreenProps> = ({ onStart, highScores }) => {
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,24 +20,33 @@ const StartScreen: React.FC<StartScreenProps> = ({ onStart, highScores }) => {
   return (
     <div className="text-center w-full max-w-2xl flex flex-col items-center justify-center animate-fade-in">
       <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-cyan-500 mb-4">
-        Şarkı Tahmin Oyunu
+        Şarkıyı Tahmin Et
       </h1>
       <p className="text-lg text-gray-300 max-w-2xl mb-8">
-        Bulanıklaşan bir klip ve parazitli bir sesle şarkıyı tahmin edebilir misin? Her 10 saniyede bir görüntü ve ses netleşecek. Ne kadar hızlı olursan o kadar çok puan kazanırsın!
+        Bulanıklaşan bir klip ve parazitli bir sesle şarkıyı tahmin edebilir
+        misin? Her 10 saniyede bir görüntü ve ses netleşecek. Ne kadar hızlı
+        olursan o kadar çok puan kazanırsın!
       </p>
-      
+
       {/* High Score Table */}
       {highScores.length > 0 && (
         <div className="w-full max-w-md mb-8">
-          <h3 className="text-2xl font-bold text-yellow-400 mb-3">🏆 En İyi 3 Oyuncu</h3>
+          <h3 className="text-2xl font-bold text-yellow-400 mb-3">
+            🏆 En İyi 3 Oyuncu
+          </h3>
           <div className="bg-black/30 rounded-lg p-4 border border-fuchsia-700/50">
             <ol className="space-y-2">
               {highScores.map((entry, index) => (
-                <li key={`${entry.name}-${index}`} className="flex justify-between items-center text-lg p-2 rounded bg-white/5">
+                <li
+                  key={`${entry.name}-${index}`}
+                  className="flex justify-between items-center text-lg p-2 rounded bg-white/5"
+                >
                   <span className="font-semibold text-cyan-300">
                     {index + 1}. {entry.name}
                   </span>
-                  <span className="font-bold text-yellow-400">{entry.score} Puan</span>
+                  <span className="font-bold text-yellow-400">
+                    {entry.score} Puan
+                  </span>
                 </li>
               ))}
             </ol>
@@ -47,7 +55,10 @@ const StartScreen: React.FC<StartScreenProps> = ({ onStart, highScores }) => {
       )}
 
       {/* Name Form */}
-      <form onSubmit={handleSubmit} className="w-full max-w-sm flex flex-col items-center gap-4">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-sm flex flex-col items-center gap-4"
+      >
         <input
           type="text"
           value={name}
