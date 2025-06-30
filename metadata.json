@@ -1,0 +1,6 @@
+{
+  "name": "Şarkı Tahmin Oyunu",
+  "description": "A game where you guess a song from a blurred music video still and distorted audio. The faster you guess, the more points you get.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
